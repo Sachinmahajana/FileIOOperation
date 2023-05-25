@@ -5,10 +5,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace FileIOOperation
 {
-    internal class JsonDataOperations
+    public class Serialization
     {
         //Json DataSerialization 
         public static void JsonDataSerialize()
@@ -52,5 +53,47 @@ namespace FileIOOperation
                 Console.WriteLine(ex.Message);
             }
         }
+        public static void XMLSerializationFn()
+        {
+            string path = @"C:\Users\hksol\source\repos\FileIOOperation\FileIOOperation\Files\XMLData.XML";
+            try
+            {
+                List<Contact> contact = new List<Contact>()
+                {
+                    new Contact() {Id = 363, Name="Manish", Age= 26},
+                    new Contact() {Id = 364, Name="Dheeraj", Age= 24},
+                    new Contact() {Id = 365, Name="Ramesh", Age= 28},
+                };
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Contact>));
+                StreamWriter sw = new StreamWriter(path);
+                xmlSerializer.Serialize(sw, contact);
+                Console.WriteLine("XML Serialization Successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public static void XMLDeserialization()
+        {
+            string path = @"C:\Users\hksol\source\repos\FileIOOperation\FileIOOperation\Files\XMLData.XML";
+
+            try
+            {
+                XmlSerializer xmlserializer = new XmlSerializer(typeof(List<Contact>));
+                FileStream stream = new FileStream(path, FileMode.Open);
+                List<Contact> name = (List<Contact>)xmlserializer.Deserialize(stream);
+
+                foreach (Contact data in name)
+                {
+                    Console.WriteLine(data);
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+       
     }
 }
