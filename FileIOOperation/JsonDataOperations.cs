@@ -19,9 +19,9 @@ namespace FileIOOperation
             {
                 List<Contact> contact = new List<Contact>()
                 {
-               new Contact() {Name = "Ajay",Id = 295,Age = 23},
-               new Contact() {Name = "Surend",Id=293,Age = 24},
-               new Contact() {Name = "Sandip",Id = 287,Age= 22 }
+                  new Contact() {Name = "Ajay",Id = 295,Age = 23},
+                  new Contact() {Name = "Surend",Id=293,Age = 24},
+                  new Contact() {Name = "Sandip",Id = 287,Age= 22}
 
                 };
                 string data = JsonConvert.SerializeObject(contact);
