@@ -20,9 +20,9 @@ namespace FileIOOperation
             {
                 List<Contact> contact = new List<Contact>()
                 {
-                  new Contact() {Name = "Ajay",Id = 295,Age = 23},
-                  new Contact() {Name = "Surend",Id=293,Age = 24},
-                  new Contact() {Name = "Sandip",Id = 287,Age= 22}
+                   new Contact() {Name = "Ajay",Id = 295,Age = 23},
+                   new Contact() {Name = "Surend",Id=293,Age = 24},
+                   new Contact() {Name = "Sandip",Id = 287,Age= 22}
 
                 };
                 string data = JsonConvert.SerializeObject(contact);
@@ -53,16 +53,17 @@ namespace FileIOOperation
                 Console.WriteLine(ex.Message);
             }
         }
+        //XML DataSerialization
         public static void XMLSerializationFn()
         {
-            string path = @"C:\Users\hksol\source\repos\FileIOOperation\FileIOOperation\Files\XMLData.XML";
+            string path = "D:\\CsharpBasicprograms\\FileIOOperation\\FileIOOperation\\FileIO\\Xmldata.xml";
             try
             {
                 List<Contact> contact = new List<Contact>()
                 {
-                    new Contact() {Id = 363, Name="Manish", Age= 26},
-                    new Contact() {Id = 364, Name="Dheeraj", Age= 24},
-                    new Contact() {Id = 365, Name="Ramesh", Age= 28},
+                    new Contact() {Id = 363, Name="Anish", Age= 26},
+                    new Contact() {Id = 364, Name="Satya", Age= 24},
+                    new Contact() {Id = 365, Name="Rajiv", Age= 28},
                 };
                 XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Contact>));
                 StreamWriter sw = new StreamWriter(path);
@@ -74,9 +75,10 @@ namespace FileIOOperation
                 Console.WriteLine(ex.Message);
             }
         }
+        //XML DataDeserialization
         public static void XMLDeserialization()
         {
-            string path = @"C:\Users\hksol\source\repos\FileIOOperation\FileIOOperation\Files\XMLData.XML";
+            string path = "D:\\CsharpBasicprograms\\FileIOOperation\\FileIOOperation\\FileIO\\Xmldata.xml";
 
             try
             {
@@ -88,6 +90,7 @@ namespace FileIOOperation
                 {
                     Console.WriteLine(data);
                 }
+                Console.WriteLine("XML Deserialization Sucessfully");
             }
             catch(Exception ex)
             {

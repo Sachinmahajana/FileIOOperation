@@ -24,7 +24,7 @@ namespace FileIOOperation
                 case 4:
                     Serialization.XMLDeserialization();
                     break;
-     
+                   
             }
         }
     }

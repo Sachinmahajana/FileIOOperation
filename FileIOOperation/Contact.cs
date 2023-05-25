@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace FileIOOperation
 {
     [Serializable]
-    internal class Contact
+    public class Contact
     {   
         public string Name { get; set; }
         public int Id { get; set; }
